@@ -6,7 +6,6 @@ import { achievements, certifications } from "@/data/portfolio";
 import { Heading, Section } from "./primitives";
 
 const ICONS = [Trophy, Medal, Crown, Barbell, SealCheck, UsersThree];
-const ACH_COLORS = ["#c05238", "#4a82c4", "#d6c14f", "#5ba05a", "#4a82c4", "#c05238"];
 const CERT_COLORS = ["#d6c14f", "#d6c14f", "#d6c14f", "#d6c14f"];
 
 export default function Achievements() {
@@ -22,7 +21,6 @@ export default function Achievements() {
       <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {achievements.map((a, i) => {
           const Icon = ICONS[i % ICONS.length];
-          const col = ACH_COLORS[i % ACH_COLORS.length];
           const big = i === 0;
           return (
             <motion.div
@@ -36,31 +34,15 @@ export default function Achievements() {
                 e.currentTarget.style.setProperty("--mx", `${((e.clientX - r.left) / r.width) * 100}%`);
                 e.currentTarget.style.setProperty("--my", `${((e.clientY - r.top) / r.height) * 100}%`);
               }}
-              style={{ ["--spot-color" as string]: `${col}2e` } as React.CSSProperties}
               className={`spotlight group relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-stroke bg-coal p-6 transition-colors hover:border-white/15 ${
                 big ? "sm:col-span-2 lg:col-span-1" : ""
               }`}
             >
-              {/* color glow in the corner brings the card to life */}
-              <span
-                className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full blur-2xl"
-                style={{ background: `${col}2b` }}
-              />
               <div className="relative flex items-center justify-between">
-                <span
-                  className="grid h-12 w-12 place-items-center rounded-2xl border shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
-                  style={{
-                    borderColor: `${col}5e`,
-                    color: col,
-                    background: `linear-gradient(135deg, ${col}30, transparent)`,
-                  }}
-                >
+                <span className="grid h-12 w-12 place-items-center rounded-2xl border border-stroke bg-white/[0.04] text-gilt shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-transform duration-500 group-hover:scale-105">
                   <Icon size={24} weight="duotone" />
                 </span>
-                <span
-                  className="rounded-full border px-2.5 py-0.5 text-[11px] uppercase tracking-wider"
-                  style={{ borderColor: `${col}4d`, color: col, background: `${col}16` }}
-                >
+                <span className="rounded-full border border-stroke px-2.5 py-0.5 text-[11px] uppercase tracking-wider text-mist">
                   {a.tag}
                 </span>
               </div>
@@ -68,10 +50,6 @@ export default function Achievements() {
                 {a.title}
               </h3>
               <p className="relative text-sm leading-relaxed text-mist">{a.detail}</p>
-              <span
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-px scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
-                style={{ background: `linear-gradient(90deg, transparent, ${col}, transparent)` }}
-              />
             </motion.div>
           );
         })}
