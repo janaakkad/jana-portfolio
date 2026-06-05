@@ -12,7 +12,7 @@ export default function Leadership() {
   const reduce = useReducedMotion();
   return (
     <Section id="leadership" className="grid-faint">
-      <div className="relative overflow-hidden rounded-3xl border border-stroke bg-gradient-to-br from-graphite via-coal to-ink p-8 md:p-14">
+      <div className="relative overflow-hidden rounded-3xl border border-stroke bg-gradient-to-br from-graphite via-coal to-ink p-6 sm:p-8 md:p-14">
         <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
 
         <div className="relative max-w-3xl">

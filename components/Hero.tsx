@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowDown, ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowDown } from "@phosphor-icons/react";
 import ParticleField from "./ParticleField";
 import Magnetic from "./Magnetic";
 import { profile } from "@/data/portfolio";
@@ -37,12 +37,12 @@ export default function Hero() {
           initial={reduce ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 font-mono text-xs uppercase tracking-[0.4em] text-gold"
+          className="mb-5 font-mono text-[10px] uppercase tracking-[0.25em] text-gold sm:mb-6 sm:text-xs sm:tracking-[0.4em]"
         >
           {profile.status}
         </motion.p>
 
-        <h1 className="font-display text-[15vw] font-bold leading-[0.92] tracking-tight text-bone sm:text-7xl md:text-8xl lg:text-[7.5rem]">
+        <h1 className="font-display text-[12.5vw] font-bold leading-[0.95] tracking-tight text-bone sm:text-7xl sm:leading-[0.92] md:text-8xl lg:text-[7.5rem]">
           <span className="block overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.span
@@ -82,15 +82,6 @@ export default function Hero() {
             >
               Explore my journey
               <ArrowDown size={16} weight="bold" className="transition-transform group-hover:translate-y-0.5" />
-            </a>
-          </Magnetic>
-          <Magnetic strength={0.5}>
-            <a
-              href="#missions"
-              className="group inline-flex items-center gap-2 rounded-full border border-stroke bg-coal/60 px-6 py-3 text-sm font-semibold text-bone transition-colors hover:border-gold/50"
-            >
-              View projects
-              <ArrowUpRight size={16} weight="bold" className="text-gold transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </Magnetic>
         </motion.div>

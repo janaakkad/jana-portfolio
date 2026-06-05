@@ -31,7 +31,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="relative overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-graphite via-coal to-ink p-8 text-center md:p-16"
+        className="relative overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-graphite via-coal to-ink p-6 text-center sm:p-8 md:p-16"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(196,74,52,0.16),transparent_55%)]" />
         <div className="relative">
@@ -95,6 +95,9 @@ export default function Contact() {
         </a>
       </div>
 
+      <p className="mt-12 text-center font-mono text-xs tracking-wider text-mist/50">
+        © 2026 Jana Akkad. All rights reserved.
+      </p>
     </Section>
   );
 }
