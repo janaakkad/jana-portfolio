@@ -95,9 +95,6 @@ export default function Contact() {
         </a>
       </div>
 
-      <p className="mt-10 text-center font-mono text-xs text-mist/60">
-        Built with Next.js, Tailwind, and Motion. Try the Konami code.
-      </p>
     </Section>
   );
 }
