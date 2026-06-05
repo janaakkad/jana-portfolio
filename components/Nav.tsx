@@ -72,15 +72,6 @@ export default function Nav() {
           ))}
         </ul>
 
-        <a
-          href={profile.github}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-medium text-gold transition-transform hover:-translate-y-px active:translate-y-0 lg:block"
-        >
-          GitHub
-        </a>
-
         <button
           onClick={() => setOpen((v) => !v)}
           className="grid h-10 w-10 place-items-center rounded-full border border-stroke text-bone lg:hidden"
