@@ -34,8 +34,7 @@ export default function Skills() {
         lead="Not bars to fill. A map of how the technical and the human connect. Hover a cluster to light it up."
       />
 
-      {/* Constellation: desktop / tablet only (needs hover + width) */}
-      <div className="mt-10 hidden overflow-hidden rounded-3xl border border-stroke bg-coal sm:block">
+      <div className="mt-10 overflow-hidden rounded-3xl border border-stroke bg-coal">
         <svg
           viewBox="0 0 1000 600"
           className="h-auto w-full"
@@ -112,34 +111,6 @@ export default function Skills() {
             );
           })}
         </svg>
-      </div>
-
-      {/* Mobile: clean skill chips grouped by cluster (constellation needs hover) */}
-      <div className="mt-10 grid grid-cols-1 gap-7 sm:hidden">
-        {skillClusters.map((cluster, ci) => {
-          const col = CLUSTER_COLORS[ci % CLUSTER_COLORS.length];
-          return (
-            <div key={cluster.name}>
-              <p
-                className="mb-3 font-mono text-xs uppercase tracking-[0.2em]"
-                style={{ color: col }}
-              >
-                {cluster.name}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {cluster.skills.map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full border px-3 py-1.5 text-sm text-bone"
-                    style={{ borderColor: `${col}40`, background: `${col}12` }}
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </div>
-          );
-        })}
       </div>
 
       {/* Visual legend removed; kept screen-reader-only for accessibility. */}

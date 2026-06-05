@@ -1,16 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { Strategy, PersonSimpleTaiChi, Code, Crown } from "@phosphor-icons/react";
 import { pillars } from "@/data/portfolio";
 import { Section } from "./primitives";
-
-const ICONS: Record<string, React.ComponentType<{ size?: number; weight?: "duotone" }>> = {
-  chess: Strategy,
-  bjj: PersonSimpleTaiChi,
-  engineering: Code,
-  leadership: Crown,
-};
 
 export default function Pillars() {
   const reduce = useReducedMotion();
@@ -40,21 +32,16 @@ export default function Pillars() {
             }}
             className="spotlight group relative flex flex-col gap-4 bg-coal p-7 transition-colors hover:bg-graphite"
           >
-            {(() => {
-              const Icon = ICONS[p.key];
-              return (
-                <span
-                  className="grid h-14 w-14 place-items-center rounded-2xl border shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-0.5 group-hover:rotate-6"
-                  style={{
-                    borderColor: `${p.accent}66`,
-                    color: p.accent,
-                    background: `linear-gradient(135deg, ${p.accent}2e, transparent)`,
-                  }}
-                >
-                  <Icon size={26} weight="duotone" />
-                </span>
-              );
-            })()}
+            <span
+              className="grid h-14 w-14 place-items-center rounded-2xl border text-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-0.5 group-hover:rotate-6"
+              style={{
+                borderColor: `${p.accent}66`,
+                color: p.accent,
+                background: `linear-gradient(135deg, ${p.accent}2e, transparent)`,
+              }}
+            >
+              {p.glyph}
+            </span>
             <div>
               <h3 className="font-display text-xl font-semibold text-bone">{p.title}</h3>
               <p
