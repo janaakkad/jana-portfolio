@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { LinkedinLogo, ArrowUpRight } from "@phosphor-icons/react";
 import { moments, profile } from "@/data/portfolio";
 import { Heading, Section } from "./primitives";
+import { asset } from "@/lib/asset";
 
 function spot(e: React.PointerEvent<HTMLElement>) {
   const r = e.currentTarget.getBoundingClientRect();
@@ -66,7 +67,7 @@ export default function Moments() {
               {m.image && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={m.image}
+                  src={asset(m.image)}
                   alt={m.title}
                   style={{ objectPosition: m.focus ?? "center" }}
                   onError={(e) => {

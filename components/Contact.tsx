@@ -12,6 +12,7 @@ import {
 import { profile, education } from "@/data/portfolio";
 import { Section } from "./primitives";
 import IconBadge from "./IconBadge";
+import { asset } from "@/lib/asset";
 
 export default function Contact() {
   const reduce = useReducedMotion();
@@ -50,7 +51,7 @@ export default function Contact() {
               <EnvelopeSimple size={17} weight="fill" /> Get in touch
             </a>
             <a
-              href="/Jana-Akkad-CV.pdf"
+              href={asset("/Jana-Akkad-CV.pdf")}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-stroke bg-coal/60 px-6 py-3 text-sm font-semibold text-bone transition-colors hover:border-gold/50"
