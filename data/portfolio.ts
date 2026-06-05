@@ -197,7 +197,12 @@ export const leadership = {
     { label: "Grow", note: "Build teams that outlast the moment." },
   ],
   also: [
-    { org: "Google Developer Groups on Campus", role: "PR Team", where: "University of Jeddah" },
+    {
+      org: "Google Developer Groups on Campus",
+      role: "PR Team",
+      where: "University of Jeddah",
+      note: "Driving outreach, turnout, and storytelling for student developer events.",
+    },
   ],
 };
 

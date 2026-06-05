@@ -36,6 +36,7 @@ export default function Achievements() {
                 e.currentTarget.style.setProperty("--mx", `${((e.clientX - r.left) / r.width) * 100}%`);
                 e.currentTarget.style.setProperty("--my", `${((e.clientY - r.top) / r.height) * 100}%`);
               }}
+              style={{ ["--spot-color" as string]: `${col}2e` } as React.CSSProperties}
               className={`spotlight group relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-stroke bg-coal p-6 transition-colors hover:border-white/15 ${
                 big ? "sm:col-span-2 lg:col-span-1" : ""
               }`}

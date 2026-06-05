@@ -9,7 +9,7 @@ import {
   DownloadSimple,
   ArrowUpRight,
 } from "@phosphor-icons/react";
-import { profile, education } from "@/data/portfolio";
+import { profile } from "@/data/portfolio";
 import { Section } from "./primitives";
 import IconBadge from "./IconBadge";
 import { asset } from "@/lib/asset";
@@ -77,34 +77,22 @@ export default function Contact() {
         </div>
       </motion.div>
 
-      {/* Education + footer */}
-      <div className="mt-16 grid grid-cols-1 gap-8 border-t border-stroke pt-10 md:grid-cols-2">
+      {/* footer */}
+      <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-stroke pt-10 md:flex-row md:items-center">
         <div>
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-mist">Education</p>
-          <div className="space-y-4">
-            {education.map((e) => (
-              <div key={e.school}>
-                <p className="font-display text-base font-semibold text-bone">{e.school}</p>
-                <p className="text-sm text-mist">{e.degree}</p>
-                <p className="font-mono text-xs text-gold">{e.date}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="md:text-right">
           <p className="font-display text-2xl font-bold text-gold-gradient">{profile.brand}</p>
           <p className="mt-2 text-sm text-mist">
             {profile.name} · {profile.location}
           </p>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-3 inline-flex items-center gap-1 text-sm text-mist transition-colors hover:text-gold md:justify-end"
-          >
-            Connect on LinkedIn <ArrowUpRight size={14} />
-          </a>
         </div>
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 text-sm text-mist transition-colors hover:text-gold"
+        >
+          Connect on LinkedIn <ArrowUpRight size={14} />
+        </a>
       </div>
 
       <p className="mt-10 text-center font-mono text-xs text-mist/60">

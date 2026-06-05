@@ -11,6 +11,7 @@ import Engineering from "@/components/Engineering";
 import Experience from "@/components/Experience";
 import Achievements from "@/components/Achievements";
 import Skills from "@/components/Skills";
+import Education from "@/components/Education";
 import Future from "@/components/Future";
 import Contact from "@/components/Contact";
 import EasterEggs from "@/components/EasterEggs";
@@ -31,6 +32,7 @@ export default function Home() {
       <Experience />
       <Achievements />
       <Skills />
+      <Education />
       <Future />
       <Contact />
       <EasterEggs />

@@ -132,7 +132,7 @@ body {
   transition: opacity 0.35s;
   background: radial-gradient(
     260px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(196, 74, 52, 0.20),
+    var(--spot-color, rgba(196, 74, 52, 0.20)),
     transparent 60%
   );
   pointer-events: none;
