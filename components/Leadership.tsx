@@ -1,0 +1,62 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import { Users, Lightning, TrendUp } from "@phosphor-icons/react";
+import { leadership } from "@/data/portfolio";
+import { Section } from "./primitives";
+import IconBadge from "./IconBadge";
+
+const ICONS = [Users, Lightning, TrendUp];
+
+export default function Leadership() {
+  const reduce = useReducedMotion();
+  return (
+    <Section id="leadership" className="grid-faint">
+      <div className="relative overflow-hidden rounded-3xl border border-stroke bg-gradient-to-br from-graphite via-coal to-ink p-8 md:p-14">
+        <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+
+        <div className="relative max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold">Leadership</p>
+          <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-bone md:text-6xl">
+            {leadership.role}
+          </h2>
+          <p className="mt-6 font-display text-2xl font-medium italic leading-snug text-gold-gradient md:text-3xl">
+            &ldquo;{leadership.philosophy}&rdquo;
+          </p>
+        </div>
+
+        <div className="relative mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-stroke bg-stroke sm:grid-cols-3">
+          {leadership.pillars.map((p, i) => {
+            const Icon = ICONS[i];
+            return (
+              <motion.div
+                key={p.label}
+                initial={reduce ? false : { opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group bg-coal/80 p-7"
+              >
+                <IconBadge icon={Icon} />
+                <h3 className="mt-5 font-display text-xl font-semibold text-bone">{p.label}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-mist">{p.note}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div className="relative mt-8 flex flex-wrap items-center gap-3">
+          <span className="text-sm text-mist">Also active with</span>
+          {leadership.also.map((a) => (
+            <span
+              key={a.org}
+              className="rounded-full border border-stroke bg-graphite px-4 py-1.5 text-sm text-bone"
+            >
+              {a.org} · {a.role}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}

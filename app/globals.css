@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* =====================================================================
+   THEME TOKENS — Storm Teal (locked, single accent: aqua)
+   Inspired by lightning over dark water.
+   ===================================================================== */
+@theme {
+  --color-ink: #0b0908;          /* page background, near-black */
+  --color-coal: #131010;         /* elevated surface */
+  --color-graphite: #1b1614;     /* card surface */
+  --color-stroke: #2e2724;       /* hairline borders */
+  --color-mist: #a89890;         /* muted text, warm taupe */
+  --color-bone: #eee3df;         /* primary text, warm cream */
+
+  /* Primary accent (kept under the `gold` token names so the whole app
+     re-skins from here). Muted clay, used sparingly. */
+  --color-gold: #c05238;         /* primary accent — muted terracotta */
+  --color-gold-soft: #dd7d62;    /* terracotta highlight */
+  --color-gold-deep: #6f2c20;    /* dark brick */
+
+  /* Icon accent — green-gold. Icons read green + yellow against black. */
+  --color-gilt: #d6c14f;         /* warm yellow-gold */
+  --color-gilt-soft: #efe08c;
+  --color-gilt-deep: #8c7d2c;
+
+  /* Category accents — one color per discipline. */
+  --color-azure: #4a82c4;   /* chess — blue */
+  --color-fern: #5ba05a;    /* engineering — green */
+
+  --font-display: var(--font-display), "Space Grotesk", sans-serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* =====================================================================
+   BASE — page theme is locked to dark teal for the whole document.
+   ===================================================================== */
+html {
+  scroll-behavior: smooth;
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(196, 74, 52, 0.32);
+  color: var(--color-gold-soft);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb {
+  background: #3a2620;
+  border-radius: 999px;
+  border: 2px solid var(--color-ink);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold-deep); }
+
+/* =====================================================================
+   UTILITIES
+   ===================================================================== */
+.font-display { font-family: var(--font-display); }
+
+/* Aqua gradient text for selective emphasis */
+.text-gold-gradient {
+  background: linear-gradient(180deg, var(--color-gold-soft) 0%, var(--color-gold) 55%, var(--color-gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-line {
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* Fine grain overlay — fixed, never on scrolling containers */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Vignette frame to focus the eye */
+.vignette::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  pointer-events: none;
+  box-shadow: inset 0 0 220px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Subtle grid background for sections */
+.grid-faint {
+  background-image:
+    linear-gradient(rgba(196, 74, 52, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 74, 52, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.glass {
+  background: rgba(17, 14, 13, 0.66);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(196, 74, 52, 0.10);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass { background: var(--color-graphite); backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+
+/* Cursor-follow spotlight overlay for interactive cards */
+.spotlight {
+  position: relative;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.35s;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(196, 74, 52, 0.20),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(110deg, transparent 35%, rgba(224, 121, 95, 0.18) 50%, transparent 65%);
+  background-size: 200% 100%;
+  animation: shimmer 4.5s linear infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.floaty { animation: floaty 6s ease-in-out infinite; }
+
+/* Lightning flash overlay (used by hero) */
+@keyframes flash {
+  0%, 100% { opacity: 0; }
+  2% { opacity: 0.5; }
+  4% { opacity: 0.1; }
+  6% { opacity: 0.35; }
+  10% { opacity: 0; }
+}
+
+/* Marquee strip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 30s linear infinite; }
+.marquee-pause:hover .animate-marquee { animation-play-state: paused; }
+
+/* Reduced motion: collapse decorative loops */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .shimmer, .floaty, .animate-marquee { animation: none !important; }
+}
