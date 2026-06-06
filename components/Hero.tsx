@@ -74,20 +74,14 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* portrait */}
+        {/* portrait — frameless, blended into the background */}
         <motion.div
-          initial={reduce ? false : { opacity: 0, scale: 0.94 }}
+          initial={reduce ? false : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="order-1 mx-auto w-full max-w-[230px] lg:order-2 lg:mx-0 lg:max-w-[340px]"
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="order-1 mx-auto w-full max-w-[320px] lg:order-2 lg:mx-0 lg:max-w-[480px]"
         >
-          <div className="relative aspect-[3/4] overflow-hidden rounded-3xl border border-gold/30 shadow-2xl shadow-black/50">
-            {/* fallback shown until the photo file exists */}
-            <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-graphite via-coal to-ink">
-              <span className="font-display text-5xl font-bold text-gold/40">
-                {profile.initials}
-              </span>
-            </div>
+          <div className="relative aspect-[4/5]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={asset("/jana-avatar.png")}
@@ -95,10 +89,22 @@ export default function Hero() {
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}
-              style={{ objectPosition: "56% 50%" }}
+              style={{
+                objectPosition: "56% 42%",
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 82% 92% at 56% 42%, #000 44%, transparent 82%)",
+                maskImage:
+                  "radial-gradient(ellipse 82% 92% at 56% 42%, #000 44%, transparent 82%)",
+                filter: "saturate(0.88) contrast(1.05)",
+              }}
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
+            {/* melt the edges into the page */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/55 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-ink/70 to-transparent lg:from-ink/55" />
+            {/* warm tone to match the site palette */}
+            <div className="pointer-events-none absolute inset-0 mix-blend-soft-light bg-[radial-gradient(circle_at_56%_42%,rgba(196,74,52,0.28),transparent_72%)]" />
           </div>
         </motion.div>
       </div>
