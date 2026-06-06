@@ -95,7 +95,8 @@ export default function Hero() {
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}
-              className="absolute inset-0 h-full w-full object-cover object-top"
+              style={{ objectPosition: "56% 50%" }}
+              className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
           </div>
