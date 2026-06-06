@@ -428,6 +428,8 @@ export const moments: Moment[] = [
     tag: "Win",
     glyph: "★",
     image: "/moments/hackathon.jpg",
+    focus: "center 30%",
+    tall: true,
   },
   {
     id: "chess-tournament",
