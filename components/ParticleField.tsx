@@ -33,7 +33,7 @@ export default function ParticleField() {
     // lightning state
     let bolt: { pts: { x: number; y: number }[]; life: number } | null = null;
     let flash = 0;
-    let nextBolt = 120;
+    let nextBolt = 70;
 
     function resize() {
       w = canvas!.clientWidth;
@@ -86,7 +86,7 @@ export default function ParticleField() {
         nextBolt--;
         if (nextBolt <= 0) {
           makeBolt();
-          nextBolt = 220 + Math.floor(Math.random() * 320);
+          nextBolt = 95 + Math.floor(Math.random() * 170);
         }
       }
 
