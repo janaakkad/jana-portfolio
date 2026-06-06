@@ -58,7 +58,7 @@ export default function Chess() {
                           />
                         )}
                         <span
-                          className={`relative z-10 text-2xl transition-all duration-300 md:text-3xl ${
+                          className={`chess-glyph relative z-10 text-2xl transition-all duration-300 md:text-3xl ${
                             isActive
                               ? "scale-110 text-gold-soft"
                               : "text-bone/80 group-hover:text-gold"
@@ -96,7 +96,7 @@ export default function Chess() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl text-gold">{lesson.piece}</span>
+                  <span className="chess-glyph text-3xl text-gold">{lesson.piece}</span>
                   <div>
                     <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mist">
                       {lesson.name}

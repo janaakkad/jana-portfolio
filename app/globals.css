@@ -68,6 +68,13 @@ body {
    ===================================================================== */
 .font-display { font-family: var(--font-display); }
 
+/* Force chess piece characters to render as monochrome text, not emoji
+   (fixes iOS showing colored/awful pieces, esp. the pawn). */
+.chess-glyph {
+  font-variant-emoji: text;
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", system-ui, sans-serif;
+}
+
 /* Aqua gradient text for selective emphasis */
 .text-gold-gradient {
   background: linear-gradient(180deg, var(--color-gold-soft) 0%, var(--color-gold) 55%, var(--color-gold-deep) 100%);

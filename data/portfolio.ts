@@ -81,13 +81,15 @@ export const journey = [
 
 export const chess = {
   title: "Thinking Several Moves Ahead",
+  // ︎ = text-presentation selector: forces monochrome glyphs instead of
+  // iOS emoji rendering, so pieces look identical on phone and laptop.
   lessons: [
-    { piece: "♛", name: "Queen", lesson: "Strategic Thinking" },
-    { piece: "♞", name: "Knight", lesson: "Pattern Recognition" },
-    { piece: "♝", name: "Bishop", lesson: "Long-Term Planning" },
-    { piece: "♜", name: "Rook", lesson: "Risk Assessment" },
-    { piece: "♟", name: "Pawn", lesson: "Patience" },
-    { piece: "♚", name: "King", lesson: "Decisions Under Pressure" },
+    { piece: "♛︎", name: "Queen", lesson: "Strategic Thinking" },
+    { piece: "♞︎", name: "Knight", lesson: "Pattern Recognition" },
+    { piece: "♝︎", name: "Bishop", lesson: "Long-Term Planning" },
+    { piece: "♜︎", name: "Rook", lesson: "Risk Assessment" },
+    { piece: "♟︎", name: "Pawn", lesson: "Patience" },
+    { piece: "♚︎", name: "King", lesson: "Decisions Under Pressure" },
   ],
   roles: ["Competitor", "Organizer", "Judge"],
   highlight: "Inter-University Chess",
