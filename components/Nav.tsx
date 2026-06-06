@@ -41,12 +41,9 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-10">
-        <a href="#top" className="group flex items-center gap-2.5">
-          <span className="grid h-8 w-8 place-items-center rounded-full border border-gold/40 font-display text-sm font-bold text-gold">
+        <a href="#top" className="group flex items-center" aria-label={profile.shortName}>
+          <span className="grid h-9 w-9 place-items-center rounded-full border border-gold/40 font-display text-sm font-bold text-gold transition-transform group-hover:scale-105">
             {profile.initials}
-          </span>
-          <span className="hidden font-display text-sm font-semibold tracking-wide text-bone sm:block">
-            {profile.shortName}
           </span>
         </a>
 
