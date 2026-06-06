@@ -98,6 +98,9 @@ export default function Contact() {
       <p className="mt-12 text-center font-mono text-xs tracking-wider text-mist/50">
         © 2026 Jana Akkad. All rights reserved.
       </p>
+      <p className="mt-2 text-center font-display text-sm font-bold tracking-[0.35em] text-gold-gradient">
+        SHOOPA !
+      </p>
     </Section>
   );
 }
