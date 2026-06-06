@@ -84,18 +84,18 @@ export default function Hero() {
           <div className="relative aspect-[4/5]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={asset("/jana-avatar.png")}
+              src={asset("/jana-avatar.jpg")}
               alt={profile.shortName}
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}
               style={{
-                objectPosition: "56% 42%",
+                objectPosition: "50% 38%",
                 WebkitMaskImage:
-                  "radial-gradient(ellipse 82% 92% at 56% 42%, #000 44%, transparent 82%)",
+                  "radial-gradient(ellipse 82% 92% at 50% 42%, #000 44%, transparent 82%)",
                 maskImage:
-                  "radial-gradient(ellipse 82% 92% at 56% 42%, #000 44%, transparent 82%)",
-                filter: "saturate(0.88) contrast(1.05)",
+                  "radial-gradient(ellipse 82% 92% at 50% 42%, #000 44%, transparent 82%)",
+                filter: "saturate(0.9) contrast(1.05)",
               }}
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -104,7 +104,7 @@ export default function Hero() {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/55 to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-ink/70 to-transparent lg:from-ink/55" />
             {/* warm tone to match the site palette */}
-            <div className="pointer-events-none absolute inset-0 mix-blend-soft-light bg-[radial-gradient(circle_at_56%_42%,rgba(196,74,52,0.28),transparent_72%)]" />
+            <div className="pointer-events-none absolute inset-0 mix-blend-soft-light bg-[radial-gradient(circle_at_50%_42%,rgba(196,74,52,0.28),transparent_72%)]" />
           </div>
         </motion.div>
       </div>
