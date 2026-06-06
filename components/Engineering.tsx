@@ -57,7 +57,10 @@ export default function Engineering() {
     };
   }, []);
 
+  // Hide the portfolio repo itself and the profile-readme repo; feature real projects.
+  const HIDE = ["jana-portfolio", "janaakkad"];
   const top = [...repos]
+    .filter((r) => !HIDE.includes(r.name.toLowerCase()))
     .sort((a, b) => b.stargazers_count - a.stargazers_count || (b.updated_at > a.updated_at ? 1 : -1))
     .slice(0, 6);
 

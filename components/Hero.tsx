@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown } from "@phosphor-icons/react";
 import ParticleField from "./ParticleField";
 import Magnetic from "./Magnetic";
@@ -9,14 +8,6 @@ import { profile } from "@/data/portfolio";
 
 export default function Hero() {
   const reduce = useReducedMotion();
-  const [i, setI] = useState(0);
-  const rotating = profile.headlines;
-
-  useEffect(() => {
-    if (reduce) return;
-    const t = setInterval(() => setI((v) => (v + 1) % rotating.length), 3200);
-    return () => clearInterval(t);
-  }, [reduce, rotating.length]);
 
   return (
     <section
@@ -42,31 +33,24 @@ export default function Hero() {
           {profile.status}
         </motion.p>
 
-        <h1 className="font-display text-[12.5vw] font-bold leading-[0.95] tracking-tight text-bone sm:text-7xl sm:leading-[0.92] md:text-8xl lg:text-[7.5rem]">
-          <span className="block overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={i}
-                initial={reduce ? false : { y: "100%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                exit={reduce ? { opacity: 0 } : { y: "-100%", opacity: 0 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="block text-gold-gradient"
-              >
-                {rotating[i]}
-              </motion.span>
-            </AnimatePresence>
-          </span>
-        </h1>
+        <motion.h1
+          initial={reduce ? false : { opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display text-[12vw] font-bold leading-[0.98] tracking-tight text-bone sm:text-7xl sm:leading-[0.92] md:text-8xl lg:text-[7.25rem]"
+        >
+          Hi, I&apos;m <span className="text-gold-gradient">Jana Akkad.</span>
+        </motion.h1>
 
         <motion.p
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-mist"
+          className="mt-7 max-w-xl text-base leading-relaxed text-mist sm:text-lg"
         >
-          Software Engineer. President. Chess competitor. Jiu-Jitsu athlete.
-          Builder.
+          A software engineering student who leads, competes, and builds.
+          President of Tuwaiq Student Club, chess competitor, and Brazilian
+          Jiu-Jitsu blue belt.
         </motion.p>
 
         <motion.div
